@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>勻加速直線運動模擬器 · 三條運動公式</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <title>勻加速直線運動模擬器</title>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -41,31 +41,13 @@
           </label>
         </div>
         <div class="eqs">
-          <article class="eq" id="eq1">
-            <h3>公式 1　速度－時間</h3>
-            <div class="formula">v = u + at</div>
-            <div class="plug" id="plug1"></div>
-          </article>
-          <article class="eq" id="eq2">
-            <h3>公式 2　位移－時間</h3>
-            <div class="formula">s = ut + ½ at²</div>
-            <div class="plug" id="plug2"></div>
-          </article>
-          <article class="eq" id="eq3">
-            <h3>公式 3　速度－位移</h3>
-            <div class="formula">v² = u² + 2as</div>
-            <div class="plug" id="plug3"></div>
-          </article>
+          <article class="eq"><h3>公式 1　速度－時間</h3><div class="formula">v = u + at</div><div class="plug" id="plug1"></div></article>
+          <article class="eq"><h3>公式 2　位移－時間</h3><div class="formula">s = ut + ½at²</div><div class="plug" id="plug2"></div></article>
+          <article class="eq"><h3>公式 3　速度－位移</h3><div class="formula">v² = u² + 2as</div><div class="plug" id="plug3"></div></article>
         </div>
         <div class="graphs">
-          <div class="gbox">
-            <h4>v–t 圖（速度對時間）</h4>
-            <canvas class="graph" id="vt" width="520" height="140"></canvas>
-          </div>
-          <div class="gbox">
-            <h4>s–t 圖（位移對時間）</h4>
-            <canvas class="graph" id="st" width="520" height="140"></canvas>
-          </div>
+          <div class="gbox"><h4>v–t 圖（速度對時間）</h4><canvas class="graph" id="vt" width="520" height="140"></canvas></div>
+          <div class="gbox"><h4>s–t 圖（位移對時間）</h4><canvas class="graph" id="st" width="520" height="140"></canvas></div>
         </div>
       </section>
       <aside class="card">
@@ -87,7 +69,8 @@
           <span><i class="dot" style="background:var(--t)"></i>t 時間</span>
         </div>
         <footer>
-          假設物體做<strong>勻加速直線運動</strong>（加速度恆定）。學生撿 3 個已知量，模擬器會用三條公式求其餘未知量，再以車子動畫同圖表顯示。單位一律用 SI：m、s、m/s、m/s²。
+          假設物體做<strong>勻加速直線運動</strong>。單位用 SI。<br />
+          本頁完全在瀏覽器內運算：無帳戶、無 Cookie、無分析、無對外連線、唔儲存任何學生輸入。
         </footer>
       </aside>
     </div>
