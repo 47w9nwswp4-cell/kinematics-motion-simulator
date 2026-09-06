@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>勻加速直線運動模擬器 · 三條運動公式</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>勻加速直線運動模擬器</h1>
+        <p>用三條運動方程調校初速、加速度、時間等變數，觀察車子點樣郁。</p>
+      </div>
+      <span class="badge">HKDSE · 勻加速直線運動</span>
+    </header>
+    <div class="grid">
+      <section class="card">
+        <div class="stage">
+          <canvas id="world" width="900" height="250"></canvas>
+          <div class="hud">
+            <div class="chip" id="hudTime">t = 0.00 s</div>
+            <div class="chip" id="hudVel">v = 0.00 m/s</div>
+            <div class="chip" id="hudDisp">s = 0.00 m</div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="btn btn-play" id="btnPlay">▶ 播放</button>
+          <button class="btn btn-stop" id="btnReset">↺ 重設</button>
+          <label class="speed">播放速率
+            <select id="rate">
+              <option value="0.5">0.5×</option>
+              <option value="1" selected>1×</option>
+              <option value="2">2×</option>
+              <option value="4">4×</option>
+            </select>
+          </label>
+        </div>
+        <div class="eqs">
+          <article class="eq" id="eq1">
+            <h3>公式 1　速度－時間</h3>
+            <div class="formula">v = u + at</div>
+            <div class="plug" id="plug1"></div>
+          </article>
+          <article class="eq" id="eq2">
+            <h3>公式 2　位移－時間</h3>
+            <div class="formula">s = ut + ½ at²</div>
+            <div class="plug" id="plug2"></div>
+          </article>
+          <article class="eq" id="eq3">
+            <h3>公式 3　速度－位移</h3>
+            <div class="formula">v² = u² + 2as</div>
+            <div class="plug" id="plug3"></div>
+          </article>
+        </div>
+        <div class="graphs">
+          <div class="gbox">
+            <h4>v–t 圖（速度對時間）</h4>
+            <canvas class="graph" id="vt" width="520" height="140"></canvas>
+          </div>
+          <div class="gbox">
+            <h4>s–t 圖（位移對時間）</h4>
+            <canvas class="graph" id="st" width="520" height="140"></canvas>
+          </div>
+        </div>
+      </section>
+      <aside class="card">
+        <div class="mode-row" id="modes"></div>
+        <div class="vars" id="vars"></div>
+        <p class="warn" id="warn"></p>
+        <div class="presets">
+          <button class="preset" data-p="accel">由靜止加速</button>
+          <button class="preset" data-p="cruise">勻速行駛</button>
+          <button class="preset" data-p="brake">煞車停下</button>
+          <button class="preset" data-p="highway">高速公路加速</button>
+          <button class="preset" data-p="reverse">倒後行駛</button>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--u)"></i>u 初速</span>
+          <span><i class="dot" style="background:var(--v)"></i>v 末速</span>
+          <span><i class="dot" style="background:var(--a)"></i>a 加速度</span>
+          <span><i class="dot" style="background:var(--s)"></i>s 位移</span>
+          <span><i class="dot" style="background:var(--t)"></i>t 時間</span>
+        </div>
+        <footer>
+          假設物體做<strong>勻加速直線運動</strong>（加速度恆定）。學生撿 3 個已知量，模擬器會用三條公式求其餘未知量，再以車子動畫同圖表顯示。單位一律用 SI：m、s、m/s、m/s²。
+        </footer>
+      </aside>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
